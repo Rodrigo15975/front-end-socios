@@ -3,7 +3,7 @@ import { PathsPublic } from "@/router/enum/routerPaths";
 import storeAuth from "@/store/auth/storeAuth";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-const ProtectedAdmin = () => {
+const RouterProtected = () => {
   const location = useLocation();
   const { isAuth } = storeAuth();
   if (isAuth)
@@ -23,4 +23,4 @@ const ProtectedAdmin = () => {
   );
 };
 
-export default ProtectedAdmin;
+export default RouterProtected;

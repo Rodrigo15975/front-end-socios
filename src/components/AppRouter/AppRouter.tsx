@@ -1,11 +1,12 @@
 import { routerProtected, routerPublics } from "@/router";
 import { Route, Routes } from "react-router-dom";
+import RouterProtected from "./ProtectedRouter";
 
 const AppRouter: React.FC = () => {
   return (
     <Routes>
-      {/* Aca pones el componente Autenticado , donde solo peuda el auth */}
-      <Route>
+      {/* Rutas protegidas */}
+      <Route element={<RouterProtected />}>
         {routerProtected.map(({ Componente, path }) => (
           <Route key={path} path={path} element={<Componente />} />
         ))}

@@ -29,4 +29,4 @@ class DataConverter {
   }
 }
 
-export const dataConverter = new DataConverter();
+export const dataConverterMayuscula = new DataConverter();

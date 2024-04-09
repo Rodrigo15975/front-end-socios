@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Active de la nagevación del sidebar */
+.active {
+  background: linear-gradient(45deg, #e1e8ff 0%, #ffdaaf 100%);
+  color: #181616 !important;
+  font-weight: 700;
+}

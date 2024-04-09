@@ -1,4 +1,4 @@
-import Home from "@/pages/home/Home";
+import Home from "@/pages/pageHome/AppPageHome";
 import { IRoutePublic } from "./types/typeRouter";
 import { PathsPublic } from "./enum/routerPaths";
 

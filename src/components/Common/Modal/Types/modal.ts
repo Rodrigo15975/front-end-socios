@@ -5,4 +5,5 @@ export type PropsModal = {
   className: string;
   onClick?: () => void;
   type: "BOTTOM-RIGHT" | "CENTER";
+  animate?: "RIGHT" | "TOP" | "LEFT" | "BOTTOM" | "SCALE-CENTER";
 };

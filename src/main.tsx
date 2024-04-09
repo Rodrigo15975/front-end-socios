@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 import {
   queryClient,
   LazyMotion,
@@ -11,16 +11,19 @@ import {
   domAnimation,
 } from "./config/index.ts";
 import { BrowserRouter } from "react-router-dom";
+import { PrimeReactProvider } from "primereact/api";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <LazyMotion features={domAnimation}>
-          <App />
-        </LazyMotion>
-        <ReactQueryDevtools buttonPosition="bottom-right" />
-      </QueryClientProvider>
-    </BrowserRouter>
-  </StrictMode>
+  <PrimeReactProvider value={{ unstyled: false }}>
+    <StrictMode>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <LazyMotion features={domAnimation}>
+            <App />
+          </LazyMotion>
+          <ReactQueryDevtools buttonPosition="bottom-right" />
+        </QueryClientProvider>
+      </BrowserRouter>
+    </StrictMode>
+  </PrimeReactProvider>
 );

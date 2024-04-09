@@ -5,6 +5,8 @@ import { CSSObject } from "react-pro-sidebar";
 export type PropsSidebar = {
   menu: SidebarLinks[];
   rootStyles?: CSSObject | undefined;
+  icon?: string;
+  onClickBtn?: () => void;
 };
 
 // Links- with- sub-menu
