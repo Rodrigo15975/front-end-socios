@@ -1,4 +1,4 @@
-import { FieldArray, Form, Formik } from "formik";
+import { FieldArray, Form, Formik, FormikHelpers } from "formik";
 import { validationSchemaSector } from "./validationSchemaSector/validationSchemaSector";
 import {
   initialArrayFormularioSector,
@@ -6,15 +6,31 @@ import {
 } from "./inputsSector/inputsSector";
 import FormularioRegistroSector from "./FormularioRegistroSector";
 import ButtonsFormularioSector from "./ButtonsFormularioSector";
+import { useCreateSector } from "@/services/gestion-socios/sector/mutation";
+import { CreateSector } from "@/services/gestion-socios/sector/types/typeSector";
+import { dataConverterMayuscula } from "@/utils/convertedMayuscula";
+import { storeSector } from "@/store";
 
 const AppFormularioSector = () => {
+  const { mutate } = useCreateSector();
+  const { setOpenFormSector } = storeSector();
+  const handledSubmit = (
+    data: CreateSector,
+    helper: FormikHelpers<CreateSector>
+  ) => {
+    const dataUpper: CreateSector = dataConverterMayuscula.converterUppercase(
+      data
+    ) as CreateSector;
+    mutate(dataUpper);
+    setOpenFormSector();
+    helper.resetForm();
+  };
+
   return (
     <>
       <Formik
         initialValues={initialArrayFormularioSector}
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handledSubmit}
         validationSchema={validationSchemaSector}
       >
         {({ getFieldProps }) => (

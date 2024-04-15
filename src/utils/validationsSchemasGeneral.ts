@@ -5,13 +5,16 @@ export const generalValidation = {
   matchesPhones: /^[0-9]{9}$/,
   matchesRuc: /^\d{11}$/,
   matchesLetras: /^[\sA-ZÁÉÍÓÚÜÑ]+$/i,
-  matchesDireccion: /[a-zA-Z].*[0-9].*|[0-9].*[a-zA-Z]/,
+  matchesDireccion: /^[\w\d\s.,()-]+$/,
+  matchesRazonSocial: /^[\w\d\s.,()-]+$/,
 };
 
 export const messageValidation = {
-  msgEmail: "Emal incorrecto",
+  msgEmail: "Email incorrecto",
   msgDNI: "El DNI debe tener exactamente 8 dígitos",
   msgPassword: "Contraseña inválido",
-  msgRuc: "Ruc Inválido",
+  msgRuc: "El RUC debe contener 11 dígitos",
   msgLetras: "Solo puede contener letras",
+  msgDireccion: "Debe contener letras y números",
+  msgPhones: "Debe tener 9 dígitos",
 };

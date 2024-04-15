@@ -2,10 +2,15 @@ import { create } from "zustand";
 import { StoreUsuario } from "./types/typeUsuario";
 
 const storeUsuario = create<StoreUsuario>((set, get) => ({
-  openFormUsuario: false,
-  setOpenFormUsuario() {
-    const { openFormUsuario } = get();
-    set({ openFormUsuario: !openFormUsuario });
+  openEditFormUsuario: false,
+  setOpenEditFormUsuario() {
+    const { openEditFormUsuario } = get();
+    set({ openEditFormUsuario: !openEditFormUsuario });
+  },
+  openDeleteFormUsuario: false,
+  setOpeDeleteFormUsuario() {
+    const { openDeleteFormUsuario } = get();
+    set({ openDeleteFormUsuario: !openDeleteFormUsuario });
   },
 }));
 

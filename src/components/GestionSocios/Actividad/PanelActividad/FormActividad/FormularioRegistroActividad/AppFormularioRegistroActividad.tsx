@@ -1,4 +1,4 @@
-import { FieldArray, Form, Formik } from "formik";
+import { FieldArray, Form, Formik, FormikHelpers } from "formik";
 import ButtonsFormularioActividad from "./ButtonsFormularioActividad";
 import FormularioRegistroActividad from "./FormularioRegistroActividad";
 import {
@@ -6,15 +6,32 @@ import {
   initialValuesPushArrayActividad,
 } from "./inputsActividad/inputsActividad";
 import { validationSchemaActividad } from "./validationSchemaActividad/validationSchemaActividad";
+import { useCreateActividad } from "@/services/gestion-socios/actividad/mutation";
+import { CreateActividad } from "@/services/gestion-socios/actividad/types/typeActividad";
+import { dataConverterMayuscula } from "@/utils/convertedMayuscula";
+import { storeActividad } from "@/store";
 
 const AppFormularioActividad = () => {
+  const { setOpenFormActividad } = storeActividad();
+
+  const { mutate } = useCreateActividad();
+
+  const handledSubmit = (
+    data: CreateActividad,
+    heplers: FormikHelpers<CreateActividad>
+  ) => {
+    const dataUpper: CreateActividad =
+      dataConverterMayuscula.converterUppercase(data) as CreateActividad;
+    mutate(dataUpper);
+    heplers.resetForm();
+    setOpenFormActividad();
+  };
+
   return (
     <>
       <Formik
         initialValues={initialArrayFormularioActividad}
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handledSubmit}
         validationSchema={validationSchemaActividad}
       >
         {({ getFieldProps }) => (

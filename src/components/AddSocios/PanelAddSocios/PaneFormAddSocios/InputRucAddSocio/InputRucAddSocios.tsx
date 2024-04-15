@@ -2,10 +2,11 @@ import { Input, PropsInputOptional } from "@/components/Common";
 import { InputDefaultNames } from "@/types/typeInputsDefault";
 import _ from "lodash";
 import { FC } from "react";
-import { inputsNameSocios } from "../inputsNameSocios/types/inputsNameSocios";
+import { InpustNameSociosRegister } from "../inputsNameSocios/types/inputsNameSocios";
 import ButtonSearchRucAddSocios from "./ButtonSearchRucAddSocios";
 
 const InputRucAddSocios: FC<PropsInputOptional> = ({ fieldProps }) => {
+  const { inputsNameSocios } = InpustNameSociosRegister();
   const renderAloneInput = (inputs: InputDefaultNames[]) =>
     inputs.map((input) => (
       <div key={input.name} className="flex-[0_1_40rem]">

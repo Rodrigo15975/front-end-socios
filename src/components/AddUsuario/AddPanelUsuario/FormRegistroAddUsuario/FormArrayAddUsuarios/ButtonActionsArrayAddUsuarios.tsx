@@ -4,19 +4,12 @@ import CommonTooltip from "@/components/Common/Tooltip/Tooltip";
 import { useFormikContext } from "formik";
 import { FC, useEffect } from "react";
 import { BsSave } from "react-icons/bs";
-import { FaWpforms } from "react-icons/fa6";
 import { GrClearOption } from "react-icons/gr";
 
 import { toast } from "react-toastify";
 import { InitialValuesArrayFormUsuarios } from "./inputsArrayAddUsuarios/InputsArrayAddUsuarios";
 
-type PropsButtonActionsArray = {
-  push: () => void;
-};
-
-const ButtonActionsArrayAddUsuarios: FC<PropsButtonActionsArray> = ({
-  push,
-}) => {
+const ButtonActionsArrayAddUsuarios: FC = () => {
   const { resetForm, values } =
     useFormikContext<InitialValuesArrayFormUsuarios>();
 
@@ -31,19 +24,6 @@ const ButtonActionsArrayAddUsuarios: FC<PropsButtonActionsArray> = ({
   return (
     <>
       <div className="flex-[0_1_20rem] sticky top-0 p-2 rounded-md border-border_primary/50 shadow flex flex-col gap-4 border">
-        {/* Nuevo Form */}
-        <CommonTooltip className="w-full h-[2.7rem]" title="Nuevo Formulario">
-          <Button
-            type="button"
-            disabled={values.usuarios.length === 5}
-            onClick={push}
-            label="Nuevo"
-            className="h-full font-robotoSlab_600 gap-2 hover:bg-bg_secondary transition flex items-center rounded-lg justify-center bg-bg_secondary/30 cursor-pointer w-full"
-          >
-            <FaWpforms className="text-2xl" />
-          </Button>
-        </CommonTooltip>
-        {/* Reset form */}
         <CommonTooltip
           position="bottomRight"
           className="w-full h-[2.7rem]"

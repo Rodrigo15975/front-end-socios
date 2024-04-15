@@ -18,7 +18,7 @@ export const validationSchemaFormArrayUsuario = Yup.object().shape({
           "Debe contener letras y números"
         )
         .min(4, "Minimo 4 digitos")
-        .required("Requerido"),
+        .optional(),
       apellidos: Yup.string()
         .required("Requerido")
         .matches(generalValidation.matchesLetras, "Apellidos inválido")
@@ -31,8 +31,7 @@ export const validationSchemaFormArrayUsuario = Yup.object().shape({
           generalValidation.matchesPhones,
           "El teléfono debe tener 9 dígitos"
         )
-        .nullable()
-        .required("Requerido"),
+        .optional(),
       contraseña: Yup.string()
         .matches(
           generalValidation.matchesLetrasAndNumbers,
@@ -52,4 +51,40 @@ export const validationSchemaFormArrayUsuario = Yup.object().shape({
       cargo: Yup.string().required("Requerido"),
     })
   ),
+});
+
+export const validationSchemaFormEditUsuario = Yup.object().shape({
+  nombres: Yup.string()
+    .matches(generalValidation.matchesLetras, "Nombres inválidos")
+    .required("Requerido"),
+
+  direccion: Yup.string()
+    .matches(
+      generalValidation.matchesDireccion,
+      "Debe contener letras y números"
+    )
+    .optional()
+    .nullable(),
+
+  apellidos: Yup.string()
+    .required("Requerido")
+    .matches(generalValidation.matchesLetras, "Apellidos inválido")
+    .min(3, "Mínimo"),
+
+  dni: Yup.string()
+    .matches(generalValidation.matchesDNI, messageValidation.msgDNI)
+    .required("Requerido"),
+
+  telefono: Yup.string()
+    .matches(
+      generalValidation.matchesPhones,
+      "El teléfono debe tener 9 dígitos"
+    )
+    .optional()
+    .nullable(),
+
+  celular: Yup.string()
+    .matches(generalValidation.matchesPhones, "El celular debe tener 9 dígitos")
+    .nullable()
+    .required("Requerido"),
 });

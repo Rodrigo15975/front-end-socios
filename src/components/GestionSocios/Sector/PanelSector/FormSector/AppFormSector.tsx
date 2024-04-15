@@ -12,7 +12,7 @@ const AppFormSector = () => {
           <Modal
             className="flex-[0_1_50rem] shadow-md min-h-[60vh] border-border_primary/50 rounded-md bg-bg_default border"
             type="CENTER"
-            animate="BOTTOM"
+            animate="TOP"
           >
             <div className="max-h-[55vh] overflow-y-auto">
               {/* Formulario Modal */}

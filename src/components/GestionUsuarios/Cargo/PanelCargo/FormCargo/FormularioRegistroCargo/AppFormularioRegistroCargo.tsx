@@ -1,4 +1,4 @@
-import { FieldArray, Form, Formik } from "formik";
+import { FieldArray, Form, Formik, FormikHelpers } from "formik";
 import ButtonsFormularioCargo from "./ButtonsFormularioCargo";
 import FormularioRegistroCargo from "./FormularioRegistroCargo";
 import {
@@ -6,15 +6,32 @@ import {
   initialValuesPushArrayCargo,
 } from "./inputsCargo/inputsCargo";
 import { validationSchemaCargo } from "./validationSchemaCargo/validationSchemaCargo";
+import { useCreateCargo } from "@/services/gestion-usuarios/cargo/mutation";
+import { CreateCargo } from "@/services/gestion-usuarios/cargo/types/typeCargo";
+import { storeCargo } from "@/store";
+import { dataConverterMayuscula } from "@/utils/convertedMayuscula";
 
 const AppFormularioCargo = () => {
+  const { mutate } = useCreateCargo();
+  const { setOpenFormCargo } = storeCargo();
+
+  const handledSubmit = (
+    data: CreateCargo,
+    helpers: FormikHelpers<CreateCargo>
+  ) => {
+    const dataUppers: CreateCargo = dataConverterMayuscula.converterUppercase(
+      data
+    ) as CreateCargo;
+    mutate(dataUppers);
+    setOpenFormCargo();
+    helpers.resetForm();
+  };
+
   return (
     <>
       <Formik
         initialValues={initialArrayFormularioCargo}
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handledSubmit}
         validationSchema={validationSchemaCargo}
       >
         {({ getFieldProps }) => (

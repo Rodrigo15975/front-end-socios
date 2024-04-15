@@ -1,17 +1,33 @@
-import { Form, Formik } from "formik";
-import FormularioConfiguracion from "./FormularioConfiguracion";
 import { Button } from "@/components/Common";
+import { dataConverterMayuscula } from "@/utils/convertedMayuscula";
+import { Form, Formik, FormikHelpers } from "formik";
 import { BsSave2 } from "react-icons/bs";
-import { initialInputsConfiguracion } from "./inputsConfiguracion";
+import FormularioConfiguracion from "./FormularioConfiguracion";
+import {
+  PropsInitialInputsConfiguracion,
+  initialInputsConfiguracion,
+} from "./inputsConfiguracion";
 import { validationSchemaConfiguracion } from "./schemaValidationConfiguracion";
+import { PartialEmpresa, useCreateEmpresa } from "@/services/configuracion";
 
 const AppFormularioConfiguracion = () => {
+  const { mutate } = useCreateEmpresa();
+
+  const handleSubmitConfiguracion = (
+    data: PartialEmpresa,
+    helper: FormikHelpers<PropsInitialInputsConfiguracion>
+  ) => {
+    const formDataUppers = dataConverterMayuscula.converterUppercase(
+      data
+    ) as PartialEmpresa;
+    mutate(formDataUppers);
+    helper.resetForm();
+  };
+
   return (
     <>
       <Formik
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handleSubmitConfiguracion}
         validationSchema={validationSchemaConfiguracion}
         initialValues={initialInputsConfiguracion}
         className="p-4"

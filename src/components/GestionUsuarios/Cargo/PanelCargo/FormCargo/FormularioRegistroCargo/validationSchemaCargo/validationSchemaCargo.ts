@@ -17,3 +17,7 @@ export const validationSchemaCargo = Yup.object().shape({
     })
   ),
 });
+
+export const validationSchemaUpdateCargo = Yup.object().shape({
+  cargo: cargoSchema,
+});

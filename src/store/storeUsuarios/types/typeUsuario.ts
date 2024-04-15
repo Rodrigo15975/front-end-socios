@@ -1,7 +1,9 @@
 export type FunctionalityUsuario = {
-  setOpenFormUsuario: () => void;
+  setOpenEditFormUsuario: () => void;
+  setOpeDeleteFormUsuario: () => void;
 };
 
 export interface StoreUsuario extends FunctionalityUsuario {
-  openFormUsuario: boolean;
+  openEditFormUsuario: boolean;
+  openDeleteFormUsuario: boolean;
 }

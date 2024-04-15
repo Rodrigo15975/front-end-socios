@@ -7,7 +7,7 @@ const ButtonAddTipoUsuario = () => {
   const { setOpenFormTipoUsuario } = storeTipoUsuario();
   return (
     <>
-      <div className="min-h-[1rem] mb-4 flex items-end justify-end w-full">
+      <div className="flex items-end h-full justify-end">
         <CommonTooltip
           title="Agrega un tipo de usuario"
           className="flex-[0_1_10rem]"

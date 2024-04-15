@@ -1,29 +1,29 @@
 import { InputDefaultNames } from "@/types/typeInputsDefault";
 import { Socio } from "@/types/typeSocios";
-import { ReactNode } from "react";
+import React from "react";
 
 export interface InputsNamesSocios extends InputDefaultNames {
-  ComponentType?: ReactNode;
+  ComponentType?: React.JSX.Element;
 }
 
 export const inputInitialValuesSocios: Socio = {
-  actividad: "",
-  celular: "",
-  correo: "",
-  departamento: "",
-  direccion1: "",
-  direccion2: "",
-  distrito: "",
+  ruc: "",
   dni: "",
+  razon_social: "",
+  correo: "",
+  telefono: "",
+  representante_legal: "",
   fecha_inicio_actividades: "",
   fecha_inscripcion: "",
-  partida_registral: "",
+  actividad: "",
+  celular: "",
+  departamento: "",
   provincia: "",
-  razon_social: "",
-  representante_legal: "",
+  distrito: "",
+  direccion1: "",
+  direccion2: "",
+  partida_registral: "",
   id_usuario: "",
-  ruc: "",
   sector: "",
-  telefono: "",
   tipo_socio: "",
 };

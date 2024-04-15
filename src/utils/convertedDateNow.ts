@@ -1,6 +1,12 @@
-import { isValid, parse, format } from "date-fns";
+import { format, isValid, parse } from "date-fns";
 
-export function transformDateTime(value: string): string | null {
+export function transformDate(value: string): Date | null {
   const date = parse(value, "dd/MM/yyyy", new Date());
-  return isValid(date) ? format(date, "dd/MM/yyyy HH:mm:ss") : null;
+  return isValid(date) ? date : null;
 }
+
+export const registerDateNow = () => {
+  const fechaActual = new Date();
+  const fechaFormateada = format(fechaActual, "dd-MM-yyyy");
+  return fechaFormateada;
+};

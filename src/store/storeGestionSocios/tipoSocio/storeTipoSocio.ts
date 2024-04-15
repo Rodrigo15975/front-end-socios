@@ -7,6 +7,11 @@ const storeTipoSocio = create<StoreTipoSocio>((set, get) => ({
     const { openFormTipoSocio } = get();
     set({ openFormTipoSocio: !openFormTipoSocio });
   },
+  openEditFormTipoSocio: false,
+  setOpenEditFormTipoSocio() {
+    const { openEditFormTipoSocio } = get();
+    set({ openEditFormTipoSocio: !openEditFormTipoSocio });
+  },
 }));
 
 export default storeTipoSocio;

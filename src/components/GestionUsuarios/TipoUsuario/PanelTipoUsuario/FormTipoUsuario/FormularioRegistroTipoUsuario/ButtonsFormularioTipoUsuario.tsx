@@ -25,8 +25,16 @@ const ButtonsFormularioTipoUsuario: FC<
 
   return (
     <>
+      <Button
+        type="submit"
+        className="w-full flex items-center justify-center gap-2 text-text_primary  mb-4 bg-bg_primary h-[2.5rem]"
+        btnDefault
+        label="Registrar"
+      >
+        <GiSave />
+      </Button>
       <CommonTooltip
-        className="w-full flex bg-bg_three/50 items-center h-[2.5rem] rounded-full justify-center"
+        className="w-full flex bg-bg_three/20 hover:bg-bg_three transition items-center h-[2.5rem] rounded-full justify-center"
         title="Nuevo Formulario"
       >
         <Button
@@ -39,15 +47,6 @@ const ButtonsFormularioTipoUsuario: FC<
           <FaWpforms className="text-xl text-text_primary/80" />
         </Button>
       </CommonTooltip>
-
-      <Button
-        type="submit"
-        className="w-full flex items-center justify-center gap-2 text-text_primary  mt-4 bg-bg_primary h-[2.5rem]"
-        btnDefault
-        label="Registrar"
-      >
-        <GiSave />
-      </Button>
     </>
   );
 };

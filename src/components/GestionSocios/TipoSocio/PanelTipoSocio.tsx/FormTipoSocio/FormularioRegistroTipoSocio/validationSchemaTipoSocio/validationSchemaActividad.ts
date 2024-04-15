@@ -14,3 +14,7 @@ export const validationSchemaTipoSocio = Yup.object().shape({
     })
   ),
 });
+
+export const validationSchemaFormEditTipoSocio = Yup.object().shape({
+  socio: tipoSocioSchema,
+});

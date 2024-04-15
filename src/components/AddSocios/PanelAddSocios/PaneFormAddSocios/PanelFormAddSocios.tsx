@@ -1,10 +1,11 @@
 import { Input, PropsInputOptional } from "@/components/Common";
 import _ from "lodash";
 import { FC } from "react";
-import { inputsNameSocios } from "./inputsNameSocios/types/inputsNameSocios";
 import { InputsNamesSocios } from "./inputsNameSocios/typesInputsNamesSocios";
+import { InpustNameSociosRegister } from "./inputsNameSocios/types/inputsNameSocios";
 
 const PanelFormAddSocios: FC<PropsInputOptional> = ({ fieldProps }) => {
+  const { inputsNameSocios } = InpustNameSociosRegister();
   const renderInputs = (inputs: InputsNamesSocios[]) =>
     inputs.map((input) => (
       <div key={input.name} className="flex flex-col flex-[0_1_100%]">
@@ -15,7 +16,8 @@ const PanelFormAddSocios: FC<PropsInputOptional> = ({ fieldProps }) => {
           labelClassName="text-text_primary/80 font-robotoSlab_500"
           fieldProps={fieldProps}
           label={input.textPlaceHolder}
-          className="w-full border p-4 text-text_primary focus:outline outline-1 outline-bg_secondary/10 focus:bg-bg_five/30 transition font-robotoSlab_500 border-border_four/20 rounded-md h-[3rem]"
+          AsComPonente={input.ComponentType}
+          className="w-full border p-4 text-text_primary focus:outline focus:bg-bg_five/50 outline-1 outline-bg_secondary/10 transition font-robotoSlab_500 border-border_four/20 rounded-md"
           name={input.name}
         />
       </div>
@@ -31,7 +33,7 @@ const PanelFormAddSocios: FC<PropsInputOptional> = ({ fieldProps }) => {
     ));
 
   return (
-    <div className="flex-[0_1_80rem] max-h-[71vh] overflow-y-auto rounded-md">
+    <div className="flex-[0_1_80rem] max-h-[60vh] overflow-y-auto rounded-md">
       {renderInputGroup()}
     </div>
   );

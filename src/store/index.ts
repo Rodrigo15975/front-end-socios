@@ -1,6 +1,8 @@
 export { default as storeAuth } from "./auth/storeAuth";
 export * from "./auth/types/typeAdminAuth";
 export { default as storeConfiguracion } from "./storeConfiguracion/storeConfiguracion";
+// export { default as storeConfiguracionUploadLogo } from "./storeConfiguracion/storeConfiguracionUploadLogo";
+export * from "./storeConfiguracion/types/typeConfiguracionUploadLogo";
 export * from "./storeConfiguracion/types/typeConfiguration";
 export { default as storeActividad } from "./storeGestionSocios/actividad/storeActividad";
 export * from "./storeGestionSocios/actividad/types/typeActividad";
@@ -12,5 +14,9 @@ export { default as storeCargo } from "./storeGestionUsuarios/storeCargo/storeCa
 export * from "./storeGestionUsuarios/storeCargo/types/typeCargo";
 export { default as storeTipoUsuario } from "./storeGestionUsuarios/storeTipoUsuario/storeTipoUsuario";
 export * from "./storeGestionUsuarios/storeTipoUsuario/types/typeStoreTipoUsuario";
+export { default as storeSidebarMobile } from "./storeSidebarMobile/storeSidebarMobile";
+export * from "./storeSidebarMobile/types/typeStoreSidebarMobile";
 export { default as storeOpenProfile } from "./storeUpdateProfile/storeOpenProfile";
 export * from "./storeUpdateProfile/types/typeStoreProfile";
+export { default as storeUsuarios } from "./storeUsuarios/storeUsuarios";
+export * from "./storeUsuarios/types/typeUsuario";

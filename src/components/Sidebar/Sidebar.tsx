@@ -3,8 +3,10 @@ import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { NavLink } from "react-router-dom";
 import { PropsSidebar } from "./types/typesLinks";
 
+import { useGetEmpresa } from "@/services/configuracion";
 import storeSidebarMobile from "@/store/storeSidebarMobile/storeSidebarMobile";
 import { Avatar } from "antd";
+import { CiImageOn } from "react-icons/ci";
 import { TiArrowBack } from "react-icons/ti";
 import { Button } from "..";
 
@@ -22,6 +24,7 @@ const SidebarMenu: FC<PropsSidebar> = ({
     toggle,
     collapse,
   } = storeSidebarMobile();
+  const { data } = useGetEmpresa();
   // Verifica si la pantalla es 926px y esconde el sidebar
   useEffect(() => {
     const handleResize = () => {
@@ -61,7 +64,13 @@ const SidebarMenu: FC<PropsSidebar> = ({
             <div>
               <div className="flex items-center flex-col py-8 justify-center ">
                 <Avatar
-                  src="https://www.adobe.com/content/dam/cc/us/en/creativecloud/design/discover/mascot-logo-design/mascot-logo-design_fb-img_1200x800.jpg"
+                  src={
+                    data?.logo ? (
+                      data.logo
+                    ) : (
+                      <CiImageOn className="text-text_primary text-2xl" />
+                    )
+                  }
                   size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
                   icon={icon}
                   className="bg-blue-400/10 border"

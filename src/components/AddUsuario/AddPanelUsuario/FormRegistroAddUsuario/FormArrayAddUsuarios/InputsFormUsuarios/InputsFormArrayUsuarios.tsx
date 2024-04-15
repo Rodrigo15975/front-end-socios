@@ -18,10 +18,10 @@ const InputsFormArrayUsuarios: FC<PropsInputOptional> = ({
           reset
           labelClassName="font-robotoSlab_400 text-text_three"
           className="w-full border-border_four/20 text-inputs-gradients font-robotoSlab_600 p-2 h-[2.5rem] mt-[0.5rem] focus:outline-2 transition-all rounded-md focus:outline-border_primary outline"
+          AsComPonente={input.Component}
+          as={input.as}
           name={`usuarios.${index}.${input.name}`}
           fieldProps={fieldProps}
-          as={input.as}
-          AsComPonente={input.Component}
         />
       </div>
     ));

@@ -19,3 +19,8 @@ export const initialValuesArrayFormularioTipoUsuarioSchema = Yup.object().shape(
     ),
   }
 );
+
+// Esquema de validacion para el formulario array
+export const schemaValidationFormEditTipoUsuario= Yup.object().shape({
+  tipo_usuario: tipoUsuarioSchema,
+});

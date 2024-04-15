@@ -14,3 +14,7 @@ export const validationSchemaSector = Yup.object().shape({
     })
   ),
 });
+
+export const validationSchemaUpdateSector = Yup.object().shape({
+  sector: sectorSchema,
+});

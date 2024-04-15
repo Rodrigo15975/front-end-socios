@@ -12,18 +12,21 @@ import {
 } from "./config/index.ts";
 import { BrowserRouter } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
+import { CookiesProvider } from "react-cookie";
 
 createRoot(document.getElementById("root")!).render(
-  <PrimeReactProvider value={{ unstyled: false }}>
-    <StrictMode>
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <LazyMotion features={domAnimation}>
-            <App />
-          </LazyMotion>
-          <ReactQueryDevtools buttonPosition="bottom-right" />
-        </QueryClientProvider>
-      </BrowserRouter>
-    </StrictMode>
-  </PrimeReactProvider>
+  <CookiesProvider>
+    <PrimeReactProvider value={{ unstyled: false }}>
+      <StrictMode>
+        <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
+            <LazyMotion features={domAnimation}>
+              <App />
+            </LazyMotion>
+            <ReactQueryDevtools buttonPosition="bottom-right" />
+          </QueryClientProvider>
+        </BrowserRouter>
+      </StrictMode>
+    </PrimeReactProvider>
+  </CookiesProvider>
 );

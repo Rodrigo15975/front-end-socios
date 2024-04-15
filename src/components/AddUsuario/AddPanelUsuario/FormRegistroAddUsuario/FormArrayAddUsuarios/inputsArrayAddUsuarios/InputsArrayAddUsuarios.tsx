@@ -1,9 +1,14 @@
 import { InputDefaultNames } from "@/types/typeInputsDefault";
-import { ReactNode } from "react";
-import { Prueba1, Prueba2 } from "./Prueba";
+import React from "react";
+import {
+  Cargo,
+  TipoUsuario,
+  FormEditCargo,
+  FormEditTipoUsuario,
+} from "./CargoAndUsuario";
 
 export interface InputsNamesAddUsuarios extends InputDefaultNames {
-  Component?: ReactNode;
+  Component?: React.JSX.Element;
 }
 
 export const inputsNamesFormArrayUsuarios: InputsNamesAddUsuarios[] = [
@@ -15,17 +20,17 @@ export const inputsNamesFormArrayUsuarios: InputsNamesAddUsuarios[] = [
     name: "tipo",
     textPlaceHolder: "Seleccione un Tipo",
     as: "select",
-    Component: <Prueba1 />,
+    Component: <TipoUsuario />,
   },
   {
     name: "cargo",
     textPlaceHolder: "Seleccione un Cargo",
     as: "select",
-    Component: <Prueba2 />,
+    Component: <Cargo />,
   },
   { name: "telefono", textPlaceHolder: "Teléfono" },
   { name: "contraseña", textPlaceHolder: "Contraseña" },
-  { name: "celular", textPlaceHolder: "Célular" },
+  { name: "celular", textPlaceHolder: "Celular" },
 ];
 
 // Valores iniciales del valor del input(name)
@@ -75,3 +80,24 @@ export const initialValuesPushArrayFormUsuarios: InitialValues = {
   telefono: "",
   tipo: "",
 };
+
+export const InputsNameFormUsuariosEdit: InputsNamesAddUsuarios[] = [
+  { name: "dni", textPlaceHolder: "DNI" },
+  { name: "nombres", textPlaceHolder: "Nombres" },
+  { name: "apellidos", textPlaceHolder: "Apellidos" },
+  { name: "direccion", textPlaceHolder: "Dirección" },
+  {
+    name: "tipo",
+    textPlaceHolder: "Seleccione un Tipo",
+    as: "select",
+    Component: <FormEditTipoUsuario />,
+  },
+  {
+    name: "cargo",
+    textPlaceHolder: "Seleccione un Cargo",
+    as: "select",
+    Component: <FormEditCargo />,
+  },
+  { name: "telefono", textPlaceHolder: "Teléfono" },
+  { name: "celular", textPlaceHolder: "Célular" },
+];

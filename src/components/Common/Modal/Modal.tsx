@@ -20,7 +20,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
         variants={modalScaleAnimate}
         initial={"initial"}
         exit={"exit"}
@@ -36,7 +36,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
         variants={modalVariantsRight}
         initial={"initial"}
         exit={"exit"}
@@ -52,7 +52,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
         variants={modalVariantsLeft}
         initial={"initial"}
         exit={"exit"}
@@ -68,7 +68,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
         variants={modalVariantsTop}
         initial={"initial"}
         exit={"exit"}
@@ -84,7 +84,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-center justify-center`}
         variants={modalVariantsBottom}
         initial={"initial"}
         exit={"exit"}
@@ -100,7 +100,7 @@ const Modal: FC<PropsModal> = ({
     return (
       <m.div
         onClick={onClick}
-        className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex items-end justify-end`}
+        className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex items-end justify-end`}
         variants={modalVariantsRight}
         initial={"initial"}
         exit={"exit"}
@@ -115,7 +115,7 @@ const Modal: FC<PropsModal> = ({
   return (
     <m.div
       onClick={onClick}
-      className={`px-[2rem] fixed z-[100] bg-white/70 inset-0 flex justify-center items-center`}
+      className={`px-[2rem] max-md:p-2 fixed z-[100] bg-white/70 inset-0 flex justify-center items-center`}
       variants={modalVariantsRight}
       initial={"initial"}
       exit={"exit"}

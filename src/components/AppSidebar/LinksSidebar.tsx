@@ -14,7 +14,6 @@ import {
 } from "react-icons/pi";
 import { RiFolderUserLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
-import { TbReportSearch } from "react-icons/tb";
 import { TiBusinessCard } from "react-icons/ti";
 
 const menu: PropsSidebar = {
@@ -68,11 +67,11 @@ const menu: PropsSidebar = {
         },
       ],
     },
-    {
-      icon: <TbReportSearch />,
-      label: LabelSidebar.REPORTES,
-      path: PathsProtected.REPORTEs,
-    },
+    // {
+    //   icon: <TbReportSearch />,
+    //   label: LabelSidebar.REPORTES,
+    //   path: PathsProtected.REPORTEs,
+    // },
     {
       icon: <GrDocumentConfig />,
       label: LabelSidebar.CONFIGURACION,

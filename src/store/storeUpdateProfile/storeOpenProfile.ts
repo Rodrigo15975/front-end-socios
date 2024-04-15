@@ -7,6 +7,11 @@ const storeOpenProfile = create<StoreOpenProfile>((set, get) => ({
     const { openProfile } = get();
     set({ openProfile: !openProfile });
   },
+  openEditProfile: false,
+  setOpenEditProfile() {
+    const { openEditProfile } = get();
+    set({ openEditProfile: !openEditProfile });
+  },
 }));
 
 export default storeOpenProfile;

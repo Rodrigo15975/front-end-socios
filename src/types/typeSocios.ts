@@ -9,6 +9,10 @@ import { Persona } from "./typeUsuarios";
 
 export interface Socio
   extends Omit<Persona, "direccion" | "nombres" | "apellidos" | "contraseña"> {
+  // Datos heredados
+  // dni: string;
+  // telefono: string;
+  // celular: string;
   ruc: string;
   razon_social: string;
   correo: string;

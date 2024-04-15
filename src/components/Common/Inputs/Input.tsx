@@ -17,31 +17,28 @@ const Input = ({
 }: PropsInput) => {
   if (reset)
     return (
-      <>
+      <div>
         <label className={labelClassName} htmlFor={name}>
           {label}
         </label>
-        <>
-          <Field
-            autoComplete=""
-            className={`${className} outline-none border`}
-            {...fieldProps(name)}
-            as={as}
-            type={type}
-            name={name}
-            id={name}
-            placeholder={textPlaceHolder}
-          >
-            {/* Si es select renderiza un componente */}
-            {as && AsComPonente}
-          </Field>
-          <ErrorMessage
-            name={name}
-            component="p"
-            className="text-text_secondary"
-          />
-        </>
-      </>
+        <Field
+          autoComplete=""
+          className={`${className} outline-none border`}
+          {...fieldProps(name)}
+          as={as}
+          type={type}
+          name={name}
+          id={name}
+          placeholder={textPlaceHolder}
+        >
+          {AsComPonente}
+        </Field>
+        <ErrorMessage
+          name={name}
+          component="p"
+          className="text-text_secondary"
+        />
+      </div>
     );
 
   return (

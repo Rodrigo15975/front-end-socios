@@ -1,4 +1,6 @@
-import { FieldArray, Form, Formik } from "formik";
+import { useCreateTipoUsuario } from "@/services/gestion-usuarios/tipo-usuario/mutation";
+import { CreateTipoUsuario } from "@/services/gestion-usuarios/tipo-usuario/types/typeTipoUsuario";
+import { FieldArray, Form, Formik, FormikHelpers } from "formik";
 import ButtonsFormularioTipoUsuario from "./ButtonsFormularioTipoUsuario";
 import FormularioRegistroTipoUsuario from "./FormularioRegistroTipoUsuario";
 import {
@@ -6,15 +8,26 @@ import {
   initialValuesPushArray,
 } from "./inputsTipoUsuario/inputsTipoUsuario";
 import { initialValuesArrayFormularioTipoUsuarioSchema } from "./validationSchemRegistroTipoUsuario/validationSchemRegistroTipoUsuario";
+import { storeTipoUsuario } from "@/store";
 
 const AppFormularioRegistroTipoUsuario = () => {
+  const { mutate } = useCreateTipoUsuario();
+  const { setOpenFormTipoUsuario } = storeTipoUsuario();
+
+  const handleSubmit = (
+    data: CreateTipoUsuario,
+    helpers: FormikHelpers<CreateTipoUsuario>
+  ) => {
+    mutate(data);
+    helpers.resetForm();
+    setOpenFormTipoUsuario();
+  };
+
   return (
     <>
       <Formik
         initialValues={initialArrayFormularioTipoUsuarios}
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handleSubmit}
         validationSchema={initialValuesArrayFormularioTipoUsuarioSchema}
       >
         {({ getFieldProps }) => (

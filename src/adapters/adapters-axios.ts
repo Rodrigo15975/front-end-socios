@@ -6,6 +6,7 @@ export class MethodsAxios implements MethodsAxiosInterface {
     // add BASE-URL
     this.axiosAdapter = axios.create({
       baseURL: urlBase,
+      withCredentials: true,
     });
   }
 
@@ -22,6 +23,7 @@ export class MethodsAxios implements MethodsAxiosInterface {
     const { data } = await this.axiosAdapter.get<T>(url, config);
     return data;
   }
+  // T Es el tipado que te duelve, D tipado que se mandará
   async POST<T, D>(url: string, dataPOST?: D, config?: AxiosRequestConfig) {
     const { data } = await this.axiosAdapter.post<T>(url, dataPOST, config);
     return data;

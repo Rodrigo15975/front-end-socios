@@ -3,7 +3,7 @@ import { InputDefaultNames } from "@/types/typeInputsDefault";
 export interface InputsConfiguracion extends InputDefaultNames {}
 
 // Propiedades para el valor inicial del input
-interface PropsInitialInputsConfiguracion {
+export interface PropsInitialInputsConfiguracion {
   ruc: string;
   nombre: string;
   direccion: string;

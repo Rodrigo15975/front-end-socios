@@ -14,3 +14,7 @@ export const validationSchemaActividad = Yup.object().shape({
     })
   ),
 });
+
+export const validationSchemaUpdateActividad = Yup.object().shape({
+  actividad: actividadSchema,
+});

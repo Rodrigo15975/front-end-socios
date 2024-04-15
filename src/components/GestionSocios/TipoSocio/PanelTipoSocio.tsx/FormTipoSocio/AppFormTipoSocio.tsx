@@ -5,6 +5,7 @@ import FormTipoSocio from "./FormTipoSocio";
 
 const AppFormTipoSocio = () => {
   const { openFormTipoSocio } = storeTipoSocio();
+
   return (
     <>
       <AnimatePresence>

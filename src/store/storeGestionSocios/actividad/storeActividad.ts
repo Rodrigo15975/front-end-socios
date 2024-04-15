@@ -7,6 +7,11 @@ const storeActividad = create<StoreActividad>((set, get) => ({
     const { openFormActividad } = get();
     set({ openFormActividad: !openFormActividad });
   },
+  openEditFormActividad: false,
+  setOpenEditFormActividad() {
+    const { openEditFormActividad } = get();
+    set({ openEditFormActividad: !openEditFormActividad });
+  },
 }));
 
 export default storeActividad;

@@ -11,24 +11,15 @@ const ButtonAddSocios = () => {
 
   return (
     <>
-      <div className="flex justify-between bg-bg_five/10 items-end h-full">
-        <CommonTooltip title="Nuevo Socio">
+      <div className="flex justify-between  bg-bg_five/10 items-end h-full">
+        <CommonTooltip title="Nuevo Socio" className="flex flex-[0_1_14rem]">
           <Button
             onClick={navigateAddSocios}
             label="Nuevo"
-            className="flex p-4 bg-bg_three hover:bg-bg_three/50 rounded-md shadow-md hover:shadow-none transition font-robotoSlab_500 items-center justify-center gap-2"
+            className="flex flex-[0_1_14rem] h-[2.7rem] bg-bg_three hover:bg-bg_three/50 rounded-md shadow-md hover:shadow-none transition font-robotoSlab_500 items-center justify-center gap-2"
             type="button"
           >
             <FaRegAddressCard />
-          </Button>
-        </CommonTooltip>
-
-        <CommonTooltip title="Export Excel">
-          <Button
-            type="button"
-            className="p-4 bg-bg_secondary hover:bg-bg_secondary/50 shadow-md hover:shadow-none transition rounded-md text-text_default font-robotoSlab_600"
-          >
-            Export
           </Button>
         </CommonTooltip>
       </div>

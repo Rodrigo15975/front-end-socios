@@ -1,7 +1,8 @@
+import { storeOpenProfile } from "@/store";
+import { Drawer } from "antd";
 import { FC, ReactNode } from "react";
 import { Header } from "../Common";
-import { Drawer } from "antd";
-import { storeOpenProfile } from "@/store";
+import DetallesProfile from "../Common/Header/Profile/DetallesProfile";
 
 type PropsHeaderDashboard = {
   title: string;
@@ -12,11 +13,10 @@ const HeaderDashboard: FC<PropsHeaderDashboard> = ({ iconTitle, title }) => {
   const { setOpenProfile, openProfile } = storeOpenProfile();
   return (
     <>
+      {/* Icon del header y nombre */}
       <Header title={title} iconTitle={iconTitle} />
-
       {/* Perfil informacion */}
       <Drawer
-        
         size="large"
         style={{
           fontFamily: '"Roboto Slab", "serif"',
@@ -33,7 +33,10 @@ const HeaderDashboard: FC<PropsHeaderDashboard> = ({ iconTitle, title }) => {
         title="Información del Perfil"
         open={openProfile}
         onClose={setOpenProfile}
-      ></Drawer>
+      >
+        {/* Detalles */}
+        <DetallesProfile />
+      </Drawer>
     </>
   );
 };

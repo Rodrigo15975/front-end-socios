@@ -18,7 +18,7 @@ export type PropsInput = {
   Icon?: string;
   reset?: boolean;
   as?: string;
-  AsComPonente?: ReactNode;
+  AsComPonente?: React.JSX.Element & ReactNode;
 };
 
 // Props para pasar a los inputs componentes diferentes

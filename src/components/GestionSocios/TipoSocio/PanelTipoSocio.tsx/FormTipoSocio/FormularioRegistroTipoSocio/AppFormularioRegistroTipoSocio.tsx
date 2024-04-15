@@ -1,20 +1,34 @@
-import { FieldArray, Form, Formik } from "formik";
+import { useCreateTipoSocio } from "@/services/gestion-socios/tipo-socios/mutation";
+import { dataConverterMayuscula } from "@/utils/convertedMayuscula";
+import { FieldArray, Form, Formik, FormikHelpers } from "formik";
+import ButtonsFormularioTipoSocio from "./ButtonsFormularioTipoSocio";
+import FormularioRegistroTipoSocio from "./FormularioRegistroTipoSocio";
 import {
   initialArrayFormularioTipoSocio,
   initialValuesPushArrayTipoSocio,
 } from "./inputsTipoSocio/inputsTipoSocio";
 import { validationSchemaTipoSocio } from "./validationSchemaTipoSocio/validationSchemaActividad";
-import FormularioRegistroTipoSocio from "./FormularioRegistroTipoSocio";
-import ButtonsFormularioTipoSocio from "./ButtonsFormularioTipoSocio";
+import { CreateTipoSocio } from "@/services/gestion-socios/tipo-socios/types/typeTipoSocios";
+import { storeTipoSocio } from "@/store";
 
 const AppFormularioTipoSocio = () => {
+  const { mutate } = useCreateTipoSocio();
+  const { setOpenFormTipoSocio } = storeTipoSocio();
+  const handleSubmit = (
+    data: CreateTipoSocio,
+    helper: FormikHelpers<CreateTipoSocio>
+  ) => {
+    const dataUppers: CreateTipoSocio =
+      dataConverterMayuscula.converterUppercase(data) as CreateTipoSocio;
+    mutate(dataUppers);
+    helper.resetForm();
+    setOpenFormTipoSocio();
+  };
   return (
     <>
       <Formik
         initialValues={initialArrayFormularioTipoSocio}
-        onSubmit={(data) => {
-          console.log(data);
-        }}
+        onSubmit={handleSubmit}
         validationSchema={validationSchemaTipoSocio}
       >
         {({ getFieldProps }) => (

@@ -10,3 +10,11 @@
   color: #181616 !important;
   font-weight: 700;
 }
+
+.gradient-table-bg {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 239, 185, 0.74) 0%,
+    rgb(255, 255, 255) 90%
+  );
+}

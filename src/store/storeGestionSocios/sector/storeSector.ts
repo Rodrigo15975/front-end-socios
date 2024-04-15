@@ -7,6 +7,11 @@ const storeSector = create<StoreSector>((set, get) => ({
     const { openFormSector } = get();
     set({ openFormSector: !openFormSector });
   },
+  openEditFormSector: false,
+  setOpenEditFormSector() {
+    const { openEditFormSector } = get();
+    set({ openEditFormSector: !openEditFormSector });
+  },
 }));
 
 export default storeSector;

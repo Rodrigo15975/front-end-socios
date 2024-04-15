@@ -6,7 +6,7 @@ const storeSidebarMobile = create<StoreSidebarMobile>((set, get) => ({
   screenMobile: false,
   toggle: false,
   setCollapse() {
-    if (window.innerWidth > 1200 && window.innerWidth <= 1536) {
+    if (window.innerWidth > 1200 && window.innerWidth <= 1510) {
       set({ collapse: true });
     } else {
       set({ collapse: false });

@@ -1,5 +1,5 @@
 export type FunctionalityAuth = {
-  setIsAuth: () => void;
+  setIsAuth: (auth: boolean) => void;
 };
 
 export interface StoreAuth extends FunctionalityAuth {

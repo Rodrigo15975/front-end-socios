@@ -1,24 +1,31 @@
 import { Button, Input, PropsInputOptional } from "@/components/Common";
+import { useGetDni } from "@/services/DNI/mutation";
+import StoreGetDataDni from "@/store/storeGetDataDni/storeGetDataDni";
 import { useFormikContext } from "formik";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { GrSearchAdvanced } from "react-icons/gr";
 import { InitialValuesArrayFormUsuarios } from "../inputsArrayAddUsuarios/InputsArrayAddUsuarios";
 
 const InputDniAddUsuarios: FC<PropsInputOptional> = ({ index, fieldProps }) => {
   const { values, setFieldValue } =
     useFormikContext<InitialValuesArrayFormUsuarios>();
+  const { mutate } = useGetDni();
+  const { dataDni } = StoreGetDataDni();
 
-  const first = () => {
-    values.usuarios.map((value, index) => {
-      if (value.dni) {
-        // Por el index se hace el cambio
-        setFieldValue(`usuarios.${index}.nombres`, "coco");
-        console.log(value.dni);
-        return;
-      }
-      return console.log("No hay dni");
-    });
+  const getDataDni = () => {
+    if (values.usuarios[0].dni) return mutate(values.usuarios[0].dni);
   };
+
+  useEffect(() => {
+    if (dataDni) {
+      setFieldValue(`usuarios.${[0]}.nombres`, dataDni.nombres);
+      setFieldValue(
+        `usuarios.${[0]}.apellidos`,
+        `${dataDni.apellidoPaterno} ${dataDni.apellidoMaterno}`
+      );
+      setFieldValue(`usuarios.${[0]}.dni`, `${dataDni.numeroDocumento}`);
+    }
+  }, [dataDni, setFieldValue]);
 
   return (
     <>
@@ -33,7 +40,7 @@ const InputDniAddUsuarios: FC<PropsInputOptional> = ({ index, fieldProps }) => {
         </div>
         <Button
           type="button"
-          onClick={first}
+          onClick={getDataDni}
           className="h-[3rem] text-text_primary hover:text-text_four flex items-center hover:shadow-md transition justify-center w-[3rem] rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100"
         >
           <GrSearchAdvanced className=" text-2xl" />

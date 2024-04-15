@@ -10,8 +10,8 @@ const ButtonBackPanelUsuario = () => {
   const backPanelUsuarios = () => navigate(PathsProtected.USUARIOS);
   return (
     <>
-      <div className="flex p-4 justify-start items-start h-full">
-        <CommonTooltip className="flex-[0_1_10rem]" title="Volver a la tabla">
+      <div className="flex p-6 justify-end items-end h-full">
+        <CommonTooltip className="flex-[0_1_20rem]" title="Volver a la tabla">
           <Button
             onClick={backPanelUsuarios}
             type="button"

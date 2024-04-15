@@ -1,7 +1,9 @@
-export type FunctionalitConfiguracion = {
-  setOpenFormConfiguration: () => void;
+export type FunctionalityConfiguracion = {
+  setOpenFormEditConfiguracion: () => void;
+  setOpenDeleteConfiguracion: () => void;
 };
 
-export interface StoreConfiguration extends FunctionalitConfiguracion {
-  openFormConfiguration: boolean;
+export interface StoreConfiguration extends FunctionalityConfiguracion {
+  openFormEditConfiguracion: boolean;
+  openDeleteConfiguracion: boolean;
 }
